@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little Story ♡</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia,serif;
+    background:linear-gradient(135deg,#fff5f8,#fde8ef,#fffaf5);
+    color:#613f49;
+    overflow-x:hidden;
+}
+
+/* ================= PASSWORD ================= */
+
+#lockScreen{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#f9dce5,#fff4f7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.lockBox{
+    width:90%;
+    max-width:400px;
+    padding:40px 25px;
+    background:#ffffffdd;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 15px 50px #a75b7025;
+}
+
+.lockBox .emoji{
+    font-size:55px;
+}
+
+.lockBox h1{
+    color:#a5576b;
+    margin:15px 0;
+}
+
+.lockBox p{
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #e4b5c1;
+    border-radius:25px;
+    outline:none;
+    text-align:center;
+    font-size:16px;
+}
+
+.mainBtn{
+    margin-top:15px;
+    padding:13px 28px;
+    border-radius:25px;
+    background:#c9788c;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    border:none;
+}
+
+#error{
+    color:#b34d63;
+    margin-top:12px;
+    display:none;
+}
+
+/* ================= WEBSITE ================= */
+
+#website{
+    display:none;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.subtitle{
+    letter-spacing:4px;
+    font-size:13px;
+    color:#aa6979;
+}
+
+.hero h1{
+    font-size:58px;
+    color:#a5576b;
+    margin:20px 0;
+}
+
+.hero p{
+    max-width:650px;
+    font-size:19px;
+    line-height:1.9;
+}
+
+.scroll{
+    margin-top:35px;
+    color:#a5576b;
+    animation:bounce 1.7s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(10px);
+    }
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:80px 20px;
+}
+
+.sectionTitle{
+    text-align:center;
+    font-size:35px;
+    color:#a5576b;
+    margin-bottom:40px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+    max-width:750px;
+    margin:auto;
+    background:#ffffffb8;
+    backdrop-filter:blur(12px);
+    padding:35px;
+    border-radius:30px;
+    box-shadow:0 12px 40px #a5576b18;
+    text-align:center;
+}
+
+.card p{
+    line-height:2;
+    font-size:17px;
+}
+
+/* ================= PHOTO GALLERY ================= */
+
+.gallery{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:20px;
+}
+
+.photo{
+    height:280px;
+    border-radius:25px;
+    overflow:hidden;
+    background:#f4dce3;
+    box-shadow:0 10px 25px #9d617022;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.photo:hover img{
+    transform:scale(1.08);
+}
+
+/* ================= MEMORY CARDS ================= */
+
+.memories{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.memory{
+    background:#ffffffb8;
+    border-radius:25px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 10px 25px #9d617018;
+    transition:.3s;
+}
+
+.memory:hover{
+    transform:translateY(-7px);
+}
+
+.memory .icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.memory h3{
+    color:#a5576b;
+    margin-bottom:12px;
+}
+
+.memory p{
+    line-height:1.7;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    max-width:700px;
+    margin:auto;
+}
+
+.timelineItem{
+    background:#ffffffb8;
+    padding:25px;
+    margin:20px 0;
+    border-left:4px solid #c9788c;
+    border-radius:0 20px 20px 0;
+    box-shadow:0 8px 20px #9d617018;
+}
+
+.timelineItem h3{
+    color:#a5576b;
+    margin-bottom:10px;
+}
+
+.timelineItem p{
+    line-height:1.7;
+}
+
+/* ================= LITTLE THINGS ================= */
+
+.reasons{
+    max-width:650px;
+    margin:auto;
+}
+
+.reason{
+    background:#ffffffb8;
+    padding:18px 22px;
+    margin:12px 0;
+    border-radius:20px;
+    box-shadow:0 5px 15px #9d617015;
+}
+
+/* ================= LOVE QUESTION ================= */
+
+.loveSection{
+    min-height:650px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.loveBox{
+    width:95%;
+    max-width:650px;
+    padding:45px 25px;
+    background:#ffffffc7;
+    border-radius:35px;
+    box-shadow:0 15px 50px #a5576b22;
+    position:relative;
+    overflow:hidden;
+}
+
+.loveHeart{
+    font-size:75px;
+    animation:heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.18);
+    }
+
+}
+
+.loveBox h2{
+    font-size:38px;
+    color:#a5576b;
+    margin:20px 0 10px;
+}
+
+.loveBox p{
+    margin-bottom:30px;
+}
+
+.loveButtons{
+    height:100px;
+    position:relative;
+}
+
+.yesBtn,
+.noBtn{
+    padding:14px 32px;
+    border-radius:30px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.yesBtn{
+    background:#c9788c;
+    color:white;
+    border:none;
+    box-shadow:0 7px 20px #c9788c55;
+}
+
+.yesBtn:hover{
+    transform:scale(1.1);
+}
+
+.noBtn{
+    background:#f3dce3;
+    color:#7b4d58;
+    border:1px solid #e2bbc6;
+    position:absolute;
+    margin-left:15px;
+}
+
+/* ================= YES RESULT ================= */
+
+#loveResult{
+    display:none;
+    margin-top:30px;
+    animation:appear .8s ease;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+#loveResult h3{
+    color:#a5576b;
+    font-size:30px;
+}
+
+#loveResult p{
+    line-height:1.8;
+    margin-top:12px;
+}
+
+/* ================= GIFT ================= */
+
+.surprise{
+    text-align:center;
+}
+
+.gift{
+    width:130px;
+    height:100px;
+    margin:30px auto;
+    background:#d9899b;
+    border-radius:15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:55px;
+    cursor:pointer;
+    transition:.4s;
+    animation:giftFloat 2s infinite;
+}
+
+@keyframes giftFloat{
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+.gift:hover{
+    transform:scale(1.1);
+}
+
+#surpriseText{
+    display:none;
+    max-width:650px;
+    margin:auto;
+    line-height:2;
+    font-size:18px;
+    animation:appear .8s ease;
+}
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:20px;
+    color:#d8899b;
+    pointer-events:none;
+    animation:heartFloat 8s linear forwards;
+    z-index:50;
+}
+
+@keyframes heartFloat{
+
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#a06b78;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .sectionTitle{
+        font-size:29px;
+    }
+
+    .loveBox h2{
+        font-size:30px;
+    }
+
+    .loveBox{
+        padding:35px 15px;
+    }
+
+    .noBtn{
+        margin-left:5px;
+    }
+
+    .photo{
+        height:250px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                     PASSWORD SCREEN
+===================================================== -->
+
+<div id="lockScreen">
+
+    <div class="lockBox">
+
+        <div class="emoji">
+            🔐💗
+        </div>
+
+        <h1>
+            A Little Secret
+        </h1>
+
+        <p>
+            This little place is only for someone special.
+            Enter the secret word to open it. 🌸
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter password..."
+        >
+
+        <button
+            class="mainBtn"
+            onclick="unlock()"
+        >
+            Open ♡
+        </button>
+
+        <p id="error">
+            Hmm... wrong password 🥺
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+                       MAIN WEBSITE
+===================================================== -->
+
+<div id="website">
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="subtitle">
+        A LITTLE CORNER OF MEMORIES
+    </div>
+
+    <h1>
+        Our Little Story ♡
+    </h1>
+
+    <p>
+        Some memories are too beautiful to stay
+        only in our minds... so I made this little
+        place for them. 🌷
+    </p>
+
+    <div class="scroll">
+        ↓ scroll slowly ↓
+    </div>
+
+</section>
+
+
+<!-- ================= MESSAGE ================= -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        A Little Message 💌
+    </h2>
+
+    <div class="card">
+
+        <p>
+            I don't know exactly when you became
+            such an important part of my life...
+            but somewhere between our random talks,
+            silly fights and countless little moments,
+            you became someone very special to me. ♡
+        </p>
+
+        <br>
+
+        <p>
+            I love how we can talk about absolutely
+            nothing and still somehow make a memory
+            out of it. Sometimes it's the smallest
+            conversations that stay in my heart the longest.
+        </p>
+
+        <br>
+
+        <p>
+            We may not have a perfect story,
+            but I wouldn't want a perfect one.
+            I want our real one —
+            with laughter, teasing, arguments,
+            apologies and lots of little moments
+            that belong only to us. 🦋
+        </p>
+
+        <br>
+
+        <p>
+            And if I could keep one thing forever,
+            it wouldn't be a particular day or a photo...
+            it would be the feeling of having you
+            in my life. 💗
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PHOTOS ================= -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        Our Memories 📸
+    </h2>
+
+    <div class="gallery">
+
+        <div class="photo">
+            <img src="photos/photo1.jpg" alt="Memory 1">
+        </div>
+
+        <div class="photo">
+            <img src="photos/photo2.jpg" alt="Memory 2">
+        </div>
+
+        <div class="photo">
+            <img src="photos/photo3.jpg" alt="Memory 3">
+        </div>
+
+        <div class="photo">
+            <img src="photos/photo4.jpg" alt="Memory 4">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LITTLE MOMENTS ================= -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        Our Little Memories 🦋
+    </h2>
+
+    <div class="memories">
+
+
+        <div class="memory">
+
+            <div class="icon">
+                🌸
+            </div>
+
+            <h3>
+                Our Random Talks
+            </h3>
+
+            <p>
+                Somehow our random conversations
+                always become my favourite ones.
+                We start with one small topic
+                and end up talking about everything.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="icon">
+                😂
+            </div>
+
+            <h3>
+                The Silly Moments
+            </h3>
+
+            <p>
+                The jokes, teasing, stupid arguments
+                and moments when we laugh for absolutely
+                no reason. Those are the memories
+                I secretly love the most.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="icon">
+                🥺
+            </div>
+
+            <h3>
+                When We Fight
+            </h3>
+
+            <p>
+                Even when we get upset with each other,
+                somewhere inside I still care.
+                Because one little argument can never
+                erase all the beautiful moments.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="icon">
+                🫶
+            </div>
+
+            <h3>
+                The Little Care
+            </h3>
+
+            <p>
+                The small check-ins, the concern,
+                the little things you remember
+                and the moments when you make me feel
+                that I matter.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="icon">
+                📸
+            </div>
+
+            <h3>
+                Our Photos
+            </h3>
+
+            <p>
+                Every photo may look ordinary to someone else,
+                but behind every picture there is a moment
+                that makes me smile.
+            </p>
+
+        </div>
+
+
+        <div class="memory">
+
+            <div class="icon">
+                🌙
+            </div>
+
+            <h3>
+                Just Us
+            </h3>
+
+            <p>
+                No special place.
+                No perfect plan.
+                Just two people creating little memories
+                without even realizing it.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TIMELINE ================= -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        Our Little Timeline 🕰️
+    </h2>
+
+    <div class="timeline">
+
+
+        <div class="timelineItem">
+
+            <h3>
+                🌷 The Beginning
+            </h3>
+
+            <p>
+                It started with simple conversations,
+                and neither of us probably knew
+                how many memories would come after that.
+            </p>
+
+        </div>
+
+
+        <div class="timelineItem">
+
+            <h3>
+                🦋 Slowly Becoming Close
+            </h3>
+
+            <p>
+                Slowly, talking to you became a part
+                of my everyday life.
+                Your messages started feeling familiar,
+                comforting and special.
+            </p>
+
+        </div>
+
+
+        <div class="timelineItem">
+
+            <h3>
+                😂 The Laughing Era
+            </h3>
+
+            <p>
+                Then came the endless jokes,
+                teasing, random conversations
+                and those moments where we couldn't
+                stop laughing.
+            </p>
+
+        </div>
+
+
+        <div class="timelineItem">
+
+            <h3>
+                🥺 The Real Moments
+            </h3>
+
+            <p>
+                We also had misunderstandings,
+                little fights and emotional moments.
+                But every time, they reminded us
+                how much we care.
+            </p>
+
+        </div>
+
+
+        <div class="timelineItem">
+
+            <h3>
+                💗 Today
+            </h3>
+
+            <p>
+                And now we're still here,
+                still making memories,
+                still annoying each other,
+                and still adding new pages
+                to our little story.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= LITTLE THINGS ================= -->
+
+<section>
+
+    <h2 class="sectionTitle">
+        Things I Secretly Love 🫶
+    </h2>
+
+    <div class="reasons">
+
+        <div class="reason">
+            ♡ The way you make me laugh even when
+            I'm not in the mood.
+        </div>
+
+        <div class="reason">
+            ♡ The random messages that can
+            instantly make my day better.
+        </div>
+
+        <div class="reason">
+            ♡ The teasing that somehow never gets old.
+        </div>
+
+        <div class="reason">
+            ♡ The little moments of care
+            that you probably don't even notice.
+        </div>
+
+        <div class="reason">
+            ♡ The memories we created without
+            planning them.
+        </div>
+
+        <div class="reason">
+            ♡ Simply knowing that somewhere,
+            there is someone who cares about me.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    DO YOU LOVE ME?
+===================================================== -->
+
+<section class="loveSection">
+
+    <div class="loveBox">
+
+        <div class="loveHeart">
+            💗
+        </div>
+
+        <h2>
+            Do You Love Me? 🥺
+        </h2>
+
+        <p>
+            Think carefully before answering... 🙈
+        </p>
+
+
+        <div class="loveButtons">
+
+            <button
+                class="yesBtn"
+                onclick="sayYes()"
+            >
+                YES 💗
+            </button>
+
+
+            <button
+                class="noBtn"
+                id="noBtn"
+                onmouseover="moveNo()"
+                onclick="moveNo()"
+            >
+                NO 🙈
+            </button>
+
+        </div>
+
+
+        <div id="loveResult">
+
+            <h3>
+                I KNEW IT! 🥹💗
+            </h3>
+
+            <p>
+                Okay... now you officially made
+                this little website even more special. 🌷
+            </p>
+
+            <div style="font-size:45px;margin-top:15px;">
+                💕 💗 💕
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FINAL SURPRISE ================= -->
+
+<section>
+
+    <div class="surprise">
+
+        <h2 class="sectionTitle">
+            One Last Surprise 🎁
+        </h2>
+
+        <p>
+            There is something hidden here...
+        </p>
+
+
+        <div
+            class="gift"
+            onclick="openGift()"
+        >
+            🎁
+        </div>
+
+
+        <div id="surpriseText">
+
+            <h2 style="color:#a5576b;">
+                ✨ Surprise ✨
+            </h2>
+
+            <br>
+
+            <p>
+                Some people become memories,
+                some become chapters,
+                and some simply make the journey
+                more beautiful.
+            </p>
+
+            <br>
+
+            <p>
+                Whatever the future brings,
+                these little moments will always
+                be worth remembering. 🌷
+            </p>
+
+            <br>
+
+            <p>
+                Keep smiling. Keep making memories.
+                And never forget the little things. ♡
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    Made with ♡ and a lot of memories.
+</footer>
+
+
+</div>
+
+
+<!-- =====================================================
+                         JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* ================= PASSWORD ================= */
+
+const correctPassword = "memories123";
+
+
+function unlock(){
+
+    const entered =
+        document.getElementById("password").value;
+
+    if(entered === correctPassword){
+
+        document.getElementById("lockScreen")
+        .style.display="none";
+
+        document.getElementById("website")
+        .style.display="block";
+
+    }
+
+    else{
+
+        document.getElementById("error")
+        .style.display="block";
+
+    }
+
+}
+
+
+/* ENTER KEY */
+
+document
+.getElementById("password")
+.addEventListener("keydown",function(event){
+
+    if(event.key === "Enter"){
+        unlock();
+    }
+
+});
+
+
+/* ================= NO BUTTON ================= */
+
+function moveNo(){
+
+    const button =
+        document.getElementById("noBtn");
+
+    const box =
+        document.querySelector(".loveButtons");
+
+
+    const maxX =
+        box.clientWidth - button.offsetWidth;
+
+    const maxY =
+        box.clientHeight - button.offsetHeight;
+
+
+    const x =
+        Math.random()*Math.max(maxX,0);
+
+    const y =
+        Math.random()*Math.max(maxY,0);
+
+
+    button.style.left =
+        x + "px";
+
+    button.style.top =
+        y + "px";
+
+}
+
+
+/* ================= YES ================= */
+
+function sayYes(){
+
+    document.getElementById("loveResult")
+    .style.display="block";
