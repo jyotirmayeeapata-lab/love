@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,13 +42,13 @@ body{
     width:90%;
     max-width:400px;
     padding:40px 25px;
-    background:#ffffffdd;
+    background:#ffffffee;
     border-radius:30px;
     text-align:center;
     box-shadow:0 15px 50px #a75b7025;
 }
 
-.lockBox .emoji{
+.emoji{
     font-size:55px;
 }
 
@@ -61,7 +62,7 @@ body{
     margin-bottom:20px;
 }
 
-input{
+#password{
     width:100%;
     padding:14px;
     border:1px solid #e4b5c1;
@@ -80,6 +81,10 @@ input{
     font-size:16px;
     cursor:pointer;
     border:none;
+}
+
+.mainBtn:hover{
+    transform:scale(1.08);
 }
 
 #error{
@@ -149,12 +154,12 @@ section{
     margin-bottom:40px;
 }
 
-/* ================= CARD ================= */
+/* ================= MESSAGE ================= */
 
 .card{
     max-width:750px;
     margin:auto;
-    background:#ffffffb8;
+    background:#ffffffc7;
     backdrop-filter:blur(12px);
     padding:35px;
     border-radius:30px;
@@ -189,6 +194,7 @@ section{
     width:100%;
     height:100%;
     object-fit:cover;
+    display:block;
     transition:.5s;
 }
 
@@ -196,7 +202,7 @@ section{
     transform:scale(1.08);
 }
 
-/* ================= MEMORY CARDS ================= */
+/* ================= MEMORIES ================= */
 
 .memories{
     max-width:900px;
@@ -207,7 +213,7 @@ section{
 }
 
 .memory{
-    background:#ffffffb8;
+    background:#ffffffc7;
     border-radius:25px;
     padding:30px 20px;
     text-align:center;
@@ -241,7 +247,7 @@ section{
 }
 
 .timelineItem{
-    background:#ffffffb8;
+    background:#ffffffc7;
     padding:25px;
     margin:20px 0;
     border-left:4px solid #c9788c;
@@ -258,7 +264,7 @@ section{
     line-height:1.7;
 }
 
-/* ================= LITTLE THINGS ================= */
+/* ================= REASONS ================= */
 
 .reasons{
     max-width:650px;
@@ -266,19 +272,18 @@ section{
 }
 
 .reason{
-    background:#ffffffb8;
+    background:#ffffffc7;
     padding:18px 22px;
     margin:12px 0;
     border-radius:20px;
     box-shadow:0 5px 15px #9d617015;
 }
 
-/* ================= LOVE QUESTION ================= */
+/* ================= LOVE ================= */
 
 .loveSection{
     min-height:650px;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
@@ -288,7 +293,7 @@ section{
     width:95%;
     max-width:650px;
     padding:45px 25px;
-    background:#ffffffc7;
+    background:#ffffffd9;
     border-radius:35px;
     box-shadow:0 15px 50px #a5576b22;
     position:relative;
@@ -309,7 +314,6 @@ section{
     50%{
         transform:scale(1.18);
     }
-
 }
 
 .loveBox h2{
@@ -323,7 +327,7 @@ section{
 }
 
 .loveButtons{
-    height:100px;
+    height:120px;
     position:relative;
 }
 
@@ -352,7 +356,8 @@ section{
     color:#7b4d58;
     border:1px solid #e2bbc6;
     position:absolute;
-    margin-left:15px;
+    left:55%;
+    top:0;
 }
 
 /* ================= YES RESULT ================= */
@@ -361,6 +366,16 @@ section{
     display:none;
     margin-top:30px;
     animation:appear .8s ease;
+}
+
+#loveResult h3{
+    color:#a5576b;
+    font-size:30px;
+}
+
+#loveResult p{
+    line-height:1.8;
+    margin-top:12px;
 }
 
 @keyframes appear{
@@ -374,17 +389,6 @@ section{
         opacity:1;
         transform:scale(1);
     }
-
-}
-
-#loveResult h3{
-    color:#a5576b;
-    font-size:30px;
-}
-
-#loveResult p{
-    line-height:1.8;
-    margin-top:12px;
 }
 
 /* ================= GIFT ================= */
@@ -404,7 +408,6 @@ section{
     align-items:center;
     font-size:55px;
     cursor:pointer;
-    transition:.4s;
     animation:giftFloat 2s infinite;
 }
 
@@ -413,11 +416,6 @@ section{
     50%{
         transform:translateY(-8px);
     }
-
-}
-
-.gift:hover{
-    transform:scale(1.1);
 }
 
 #surpriseText{
@@ -434,10 +432,9 @@ section{
 .heart{
     position:fixed;
     bottom:-30px;
-    font-size:20px;
-    color:#d8899b;
+    font-size:22px;
     pointer-events:none;
-    animation:heartFloat 8s linear forwards;
+    animation:heartFloat 7s linear forwards;
     z-index:50;
 }
 
@@ -449,14 +446,13 @@ section{
     }
 
     20%{
-        opacity:.8;
+        opacity:.9;
     }
 
     100%{
         transform:translateY(-110vh) rotate(360deg);
         opacity:0;
     }
-
 }
 
 /* ================= FOOTER ================= */
@@ -487,26 +483,21 @@ footer{
         padding:35px 15px;
     }
 
-    .noBtn{
-        margin-left:5px;
+    .card{
+        padding:25px 20px;
     }
 
     .photo{
         height:250px;
     }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-                     PASSWORD SCREEN
-===================================================== -->
+<!-- ================= PASSWORD ================= -->
 
 <div id="lockScreen">
 
@@ -532,6 +523,7 @@ footer{
         >
 
         <button
+            type="button"
             class="mainBtn"
             onclick="unlock()"
         >
@@ -547,12 +539,9 @@ footer{
 </div>
 
 
-<!-- =====================================================
-                       MAIN WEBSITE
-===================================================== -->
+<!-- ================= WEBSITE ================= -->
 
 <div id="website">
-
 
 <!-- ================= HERO ================= -->
 
@@ -602,8 +591,8 @@ footer{
         <p>
             I love how we can talk about absolutely
             nothing and still somehow make a memory
-            out of it. Sometimes it's the smallest
-            conversations that stay in my heart the longest.
+            out of it. Sometimes the smallest
+            conversations stay in our hearts the longest.
         </p>
 
         <br>
@@ -613,17 +602,15 @@ footer{
             but I wouldn't want a perfect one.
             I want our real one —
             with laughter, teasing, arguments,
-            apologies and lots of little moments
-            that belong only to us. 🦋
+            apologies and lots of little moments. 🦋
         </p>
 
         <br>
 
         <p>
             And if I could keep one thing forever,
-            it wouldn't be a particular day or a photo...
-            it would be the feeling of having you
-            in my life. 💗
+            it would be the feeling of having
+            someone special in my life. 💗
         </p>
 
     </div>
@@ -642,19 +629,19 @@ footer{
     <div class="gallery">
 
         <div class="photo">
-            <img src="photos/photo1.jpg" alt="Memory 1">
+            <img src="./photo1.jpeg" alt="Memory 1">
         </div>
 
         <div class="photo">
-            <img src="photos/photo2.jpg" alt="Memory 2">
+            <img src="./photo2.jpeg" alt="Memory 2">
         </div>
 
         <div class="photo">
-            <img src="photos/photo3.jpg" alt="Memory 3">
+            <img src="./photo3.jpeg" alt="Memory 3">
         </div>
 
         <div class="photo">
-            <img src="photos/photo4.jpg" alt="Memory 4">
+            <img src="./photo4.jpeg" alt="Memory 4">
         </div>
 
     </div>
@@ -662,7 +649,7 @@ footer{
 </section>
 
 
-<!-- ================= LITTLE MOMENTS ================= -->
+<!-- ================= MEMORIES ================= -->
 
 <section>
 
@@ -672,121 +659,81 @@ footer{
 
     <div class="memories">
 
-
         <div class="memory">
 
-            <div class="icon">
-                🌸
-            </div>
+            <div class="icon">🌸</div>
 
-            <h3>
-                Our Random Talks
-            </h3>
+            <h3>Our Random Talks</h3>
 
             <p>
                 Somehow our random conversations
                 always become my favourite ones.
-                We start with one small topic
-                and end up talking about everything.
             </p>
 
         </div>
 
-
         <div class="memory">
 
-            <div class="icon">
-                😂
-            </div>
+            <div class="icon">😂</div>
 
-            <h3>
-                The Silly Moments
-            </h3>
+            <h3>The Silly Moments</h3>
 
             <p>
-                The jokes, teasing, stupid arguments
-                and moments when we laugh for absolutely
-                no reason. Those are the memories
-                I secretly love the most.
+                The jokes, teasing and moments
+                when we laugh for absolutely no reason.
             </p>
 
         </div>
 
-
         <div class="memory">
 
-            <div class="icon">
-                🥺
-            </div>
+            <div class="icon">🥺</div>
 
-            <h3>
-                When We Fight
-            </h3>
+            <h3>The Real Moments</h3>
 
             <p>
-                Even when we get upset with each other,
-                somewhere inside I still care.
-                Because one little argument can never
-                erase all the beautiful moments.
+                Even difficult moments become
+                part of a meaningful story.
             </p>
 
         </div>
 
-
         <div class="memory">
 
-            <div class="icon">
-                🫶
-            </div>
+            <div class="icon">🫶</div>
 
-            <h3>
-                The Little Care
-            </h3>
+            <h3>The Little Care</h3>
 
             <p>
-                The small check-ins, the concern,
-                the little things you remember
-                and the moments when you make me feel
-                that I matter.
+                Small check-ins and little moments
+                that make someone feel special.
             </p>
 
         </div>
 
-
         <div class="memory">
 
-            <div class="icon">
-                📸
-            </div>
+            <div class="icon">📸</div>
 
-            <h3>
-                Our Photos
-            </h3>
+            <h3>Our Photos</h3>
 
             <p>
-                Every photo may look ordinary to someone else,
-                but behind every picture there is a moment
-                that makes me smile.
+                Every photo keeps a little memory
+                worth smiling about.
             </p>
 
         </div>
 
-
         <div class="memory">
 
-            <div class="icon">
-                🌙
-            </div>
+            <div class="icon">🌙</div>
 
-            <h3>
-                Just Us
-            </h3>
+            <h3>Just Us</h3>
 
             <p>
-                No special place.
                 No perfect plan.
-                Just two people creating little memories
-                without even realizing it.
+                Just little moments that become
+                beautiful memories.
             </p>
 
         </div>
@@ -806,93 +753,67 @@ footer{
 
     <div class="timeline">
 
-
         <div class="timelineItem">
 
-            <h3>
-                🌷 The Beginning
-            </h3>
+            <h3>🌷 The Beginning</h3>
 
             <p>
                 It started with simple conversations,
-                and neither of us probably knew
-                how many memories would come after that.
+                and many memories came after that.
             </p>
 
         </div>
-
 
         <div class="timelineItem">
 
-            <h3>
-                🦋 Slowly Becoming Close
-            </h3>
+            <h3>🦋 Becoming Close</h3>
 
             <p>
-                Slowly, talking to you became a part
-                of my everyday life.
-                Your messages started feeling familiar,
-                comforting and special.
+                Slowly, talking became a familiar
+                and special part of everyday life.
             </p>
 
         </div>
-
 
         <div class="timelineItem">
 
-            <h3>
-                😂 The Laughing Era
-            </h3>
+            <h3>😂 The Laughing Era</h3>
 
             <p>
-                Then came the endless jokes,
-                teasing, random conversations
-                and those moments where we couldn't
-                stop laughing.
+                Jokes, teasing and random conversations
+                created countless funny moments.
             </p>
 
         </div>
-
 
         <div class="timelineItem">
 
-            <h3>
-                🥺 The Real Moments
-            </h3>
+            <h3>🥺 The Real Moments</h3>
 
             <p>
-                We also had misunderstandings,
-                little fights and emotional moments.
-                But every time, they reminded us
-                how much we care.
+                Misunderstandings and emotional moments
+                also became part of the journey.
             </p>
 
         </div>
-
 
         <div class="timelineItem">
 
-            <h3>
-                💗 Today
-            </h3>
+            <h3>💗 Today</h3>
 
             <p>
-                And now we're still here,
-                still making memories,
-                still annoying each other,
-                and still adding new pages
-                to our little story.
+                Still creating memories and adding
+                new pages to our little story.
             </p>
 
         </div>
-
 
     </div>
 
 </section>
 
 
-<!-- ================= LITTLE THINGS ================= -->
+<!-- ================= REASONS ================= -->
 
 <section>
 
@@ -903,32 +824,27 @@ footer{
     <div class="reasons">
 
         <div class="reason">
-            ♡ The way you make me laugh even when
-            I'm not in the mood.
+            ♡ The way you make me laugh.
         </div>
 
         <div class="reason">
-            ♡ The random messages that can
-            instantly make my day better.
+            ♡ The random messages that make my day better.
         </div>
 
         <div class="reason">
-            ♡ The teasing that somehow never gets old.
+            ♡ The teasing that never gets old.
         </div>
 
         <div class="reason">
-            ♡ The little moments of care
-            that you probably don't even notice.
+            ♡ The little moments of care.
         </div>
 
         <div class="reason">
-            ♡ The memories we created without
-            planning them.
+            ♡ The memories created without planning.
         </div>
 
         <div class="reason">
-            ♡ Simply knowing that somewhere,
-            there is someone who cares about me.
+            ♡ Having someone who genuinely cares.
         </div>
 
     </div>
@@ -936,9 +852,7 @@ footer{
 </section>
 
 
-<!-- =====================================================
-                    DO YOU LOVE ME?
-===================================================== -->
+<!-- ================= LOVE QUESTION ================= -->
 
 <section class="loveSection">
 
@@ -956,28 +870,26 @@ footer{
             Think carefully before answering... 🙈
         </p>
 
-
         <div class="loveButtons">
 
             <button
+                type="button"
                 class="yesBtn"
                 onclick="sayYes()"
             >
                 YES 💗
             </button>
 
-
             <button
+                type="button"
                 class="noBtn"
                 id="noBtn"
-                onmouseover="moveNo()"
                 onclick="moveNo()"
             >
                 NO 🙈
             </button>
 
         </div>
-
 
         <div id="loveResult">
 
@@ -986,8 +898,8 @@ footer{
             </h3>
 
             <p>
-                Okay... now you officially made
-                this little website even more special. 🌷
+                You just made this little website
+                even more special. 🌷
             </p>
 
             <div style="font-size:45px;margin-top:15px;">
@@ -1001,7 +913,7 @@ footer{
 </section>
 
 
-<!-- ================= FINAL SURPRISE ================= -->
+<!-- ================= SURPRISE ================= -->
 
 <section>
 
@@ -1015,14 +927,12 @@ footer{
             There is something hidden here...
         </p>
 
-
         <div
             class="gift"
             onclick="openGift()"
         >
             🎁
         </div>
-
 
         <div id="surpriseText">
 
@@ -1035,8 +945,8 @@ footer{
             <p>
                 Some people become memories,
                 some become chapters,
-                and some simply make the journey
-                more beautiful.
+                and some make the journey
+                more beautiful. 🌷
             </p>
 
             <br>
@@ -1044,13 +954,14 @@ footer{
             <p>
                 Whatever the future brings,
                 these little moments will always
-                be worth remembering. 🌷
+                be worth remembering. 💗
             </p>
 
             <br>
 
             <p>
-                Keep smiling. Keep making memories.
+                Keep smiling.
+                Keep making memories.
                 And never forget the little things. ♡
             </p>
 
@@ -1065,55 +976,66 @@ footer{
     Made with ♡ and a lot of memories.
 </footer>
 
-
 </div>
 
 
-<!-- =====================================================
-                         JAVASCRIPT
-===================================================== -->
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-
 /* ================= PASSWORD ================= */
 
-const correctPassword = "memories123";
-
+const correctPassword = "2611";
 
 function unlock(){
 
-    const entered =
-        document.getElementById("password").value;
+    const passwordBox =
+        document.getElementById("password");
 
-    if(entered === correctPassword){
+    const enteredPassword =
+        passwordBox.value.trim();
 
-        document.getElementById("lockScreen")
-        .style.display="none";
+    const lockScreen =
+        document.getElementById("lockScreen");
 
-        document.getElementById("website")
-        .style.display="block";
+    const website =
+        document.getElementById("website");
+
+    const error =
+        document.getElementById("error");
+
+    if(enteredPassword === correctPassword){
+
+        lockScreen.style.display = "none";
+
+        website.style.display = "block";
+
+        error.style.display = "none";
+
+        window.scrollTo(0,0);
+
+    }else{
+
+        error.style.display = "block";
+
+        passwordBox.value = "";
+
+        passwordBox.focus();
 
     }
-
-    else{
-
-        document.getElementById("error")
-        .style.display="block";
-
-    }
-
 }
 
 
-/* ENTER KEY */
+/* ================= ENTER KEY ================= */
 
 document
 .getElementById("password")
 .addEventListener("keydown",function(event){
 
     if(event.key === "Enter"){
+
         unlock();
+
     }
 
 });
@@ -1129,33 +1051,137 @@ function moveNo(){
     const box =
         document.querySelector(".loveButtons");
 
-
     const maxX =
-        box.clientWidth - button.offsetWidth;
+        Math.max(
+            box.clientWidth - button.offsetWidth,
+            0
+        );
 
     const maxY =
-        box.clientHeight - button.offsetHeight;
-
+        Math.max(
+            box.clientHeight - button.offsetHeight,
+            0
+        );
 
     const x =
-        Math.random()*Math.max(maxX,0);
+        Math.random() * maxX;
 
     const y =
-        Math.random()*Math.max(maxY,0);
+        Math.random() * maxY;
 
+    button.style.left = x + "px";
 
-    button.style.left =
-        x + "px";
-
-    button.style.top =
-        y + "px";
+    button.style.top = y + "px";
 
 }
 
 
-/* ================= YES ================= */
+/* ================= YES BUTTON ================= */
 
 function sayYes(){
 
-    document.getElementById("loveResult")
-    .style.display="block";
+    const result =
+        document.getElementById("loveResult");
+
+    result.style.display = "block";
+
+    createHearts(12);
+
+}
+
+
+/* ================= GIFT ================= */
+
+function openGift(){
+
+    const surprise =
+        document.getElementById("surpriseText");
+
+    if(surprise.style.display === "block"){
+
+        surprise.style.display = "none";
+
+    }else{
+
+        surprise.style.display = "block";
+
+        createHearts(15);
+
+    }
+
+}
+
+
+/* ================= FLOATING HEARTS ================= */
+
+function createHeart(){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className = "heart";
+
+    const hearts = [
+        "💗",
+        "💕",
+        "💖",
+        "💓",
+        "💞",
+        "🌸",
+        "🦋"
+    ];
+
+    heart.innerHTML =
+        hearts[
+            Math.floor(
+                Math.random() * hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function(){
+
+        heart.remove();
+
+    },7000);
+
+}
+
+
+/* ================= CREATE MANY HEARTS ================= */
+
+function createHearts(number){
+
+    for(let i = 0; i < number; i++){
+
+        setTimeout(function(){
+
+            createHeart();
+
+        },i * 150);
+
+    }
+
+}
+
+
+/* ================= AUTOMATIC HEARTS ================= */
+
+setInterval(function(){
+
+    createHeart();
+
+},1800);
+
+</script>
+
+</body>
+
+</html>
